@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+  },
+  "include": [
+    "src"
+  ],
+  "files": [
+  "./index.ts"
+  ]
+}

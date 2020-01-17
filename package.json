@@ -4,7 +4,11 @@
   "description": "Dislog's",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -b",
+    "coverage": "mkdir coverage; nyc report --reporter=text-lcov >> ./coverage/lcov.info",
+    "test": "npm run clear; npm run unit",
+    "clear": "rm -f index.js index.d.ts; find src test -name \"*.js\" -type f -delete -or -name \"*.d.ts\" -type f -delete",
+    "unit": "nyc mocha --reporter=landing -r ts-node/register test/*.ts"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,16 @@
   "bugs": {
     "url": "https://github.com/simon300000/desDialogs/issues"
   },
-  "homepage": "https://github.com/simon300000/desDialogs#readme"
+  "homepage": "https://github.com/simon300000/desDialogs#readme",
+  "devDependencies": {
+    "@types/chai": "^4.2.7",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^13.1.8",
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.9",
+    "mocha": "^7.0.0",
+    "nyc": "^15.0.0",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  }
 }
